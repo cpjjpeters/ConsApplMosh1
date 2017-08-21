@@ -1,4 +1,6 @@
-﻿namespace EventsAndDelegates
+﻿using System;
+
+namespace EventsAndDelegates
 {
     partial class Program
     {
@@ -8,9 +10,11 @@
             var videoEncoder = new VideoEncoder(); // publisher
             var mailService = new MailService(); // subscriber
             var messageService = new MessageService(); // subscriber 2
+            var socialmediaService = new SocialMediaService(); // 3th subscriber
 
             videoEncoder.VideoEncoded += mailService.OnVideoEncoded;
             videoEncoder.VideoEncoded += messageService.OnVideoEncoded;
+            videoEncoder.VideoEncoded += socialmediaService.OnVideoEncoded;
             videoEncoder.Encode(video);
             // just comment
             //more comment

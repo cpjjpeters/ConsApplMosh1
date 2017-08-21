@@ -7,16 +7,7 @@ namespace EventsAndDelegates
     class VideoEncoder
     {
         public string StommeString { get; set; }
-        private int _myVar;
-
-        public int MyProperty
-        {
-            get { return _myVar; }
-            set { _myVar = value; }
-        }
-
-
-
+       
 
         // 1 define delegate
         // 2 define an event based on delegate
