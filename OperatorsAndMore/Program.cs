@@ -1,19 +1,46 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
-namespace OperatorsAndMore
+namespace CSharpFundamentals
+
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var a = 10;
-            var b = 3;
-            Console.WriteLine(a / b);
+            var numbers = new List<int> { 1, 2, 3, 4, 5, 6 };
+            var lijst   =    new List<int> {1,2,3,4,5,6};
+            var smallest = getSmallest(numbers, 3);
+            foreach (var number in smallest)
+            {
+                Console.WriteLine(number);
+            }
 
-            var person = new Person();
-            person.FirstName = "Carl";
-            person.LastName = "Peters";
-            person.Introduce();
+        }
+
+        public static List<int> getSmallest(List<int> list, int count)
+        {
+            var smallest = new List<int>();
+            while (smallest.Count< count)
+            {
+                var min = getSmallest(list);
+                smallest.Add(min);
+                list.Remove(min);
+            }
+            return smallest;
+        }
+
+        public static int getSmallest(List<int> list)
+        {
+            var min = list[0];
+            for (var i = 1; i < list.Count; i++)
+            {
+                if (list[i] > min)
+                     min = list[i];
+            }
+            return min;
+
         }
     }
 }
